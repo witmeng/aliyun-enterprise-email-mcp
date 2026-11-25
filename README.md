@@ -57,7 +57,7 @@ npm run pack:smoke
 | `SMTP_HOST` | 默认 `smtp.qiye.aliyun.com`（须为合法 DNS 主机名） |
 | `SMTP_PORT` | 默认 `465` |
 | `SMTP_TLS_MODE` | `implicit`（默认，隐式 TLS）或 `starttls`（如 587；`requireTLS`，**仍校验证书**） |
-| `MAIL_RECIPIENT_ALLOWLIST` | 逗号分隔允许收件人；**默认失败关闭**，未配置则拒绝发送 |
+| `MAIL_RECIPIENT_ALLOWLIST` | 可选。不配置时，收件人完全由调用参数 `to` / `cc` / `bcc` 决定。配置后，这些地址必须全部命中该逗号分隔名单 |
 | `MAIL_PRODUCTION_SEND_OPT_IN` | `NODE_ENV=production` 时必须为 `true` 才允许发送（**不能替代**人类批准） |
 | `MAIL_SIGNATURE_HTML` / `MAIL_SIGNATURE_TEXT` | 可选。每次 `send_email` 自动附在正文末尾；图片用公开 https 地址。正文已含同一签名或同一图片地址时不重复追加 |
 | `MAIL_ATTACHMENT_ROOT` | 附件可读根目录；未配置则禁止附件 |
@@ -91,7 +91,6 @@ npm run pack:smoke
       "env": {
         "SMTP_USER": "you@company.com",
         "SMTP_PASSWORD": "注入而非写入仓库",
-        "MAIL_RECIPIENT_ALLOWLIST": "you@company.com",
         "MAIL_ATTACHMENT_ROOT": "/ABSOLUTE/allowed/attachments"
       }
     }
@@ -141,7 +140,6 @@ Inspector 可在无凭据时完成 initialize / listTools；调用 verify/send �
         "SMTP_TLS_MODE": "implicit",
         "SMTP_USER": "you@company.com",
         "SMTP_PASSWORD": "注入而非写入仓库",
-        "MAIL_RECIPIENT_ALLOWLIST": "recipient@example.com",
         "MAIL_SIGNATURE_HTML": "<p>签名 HTML，图片使用公开 https 地址</p>",
         "MAIL_SIGNATURE_TEXT": "纯文本签名"
       }
@@ -155,7 +153,6 @@ Inspector 可在无凭据时完成 initialize / listTools；调用 verify/send �
 ```bash
 SMTP_HOST=smtp.qiye.aliyun.com SMTP_PORT=465 SMTP_TLS_MODE=implicit \
 SMTP_USER='you@company.com' SMTP_PASSWORD='你的授权码' \
-MAIL_RECIPIENT_ALLOWLIST='recipient@example.com' \
 npx -y github:witmeng/aliyun-enterprise-email-mcp
 ```
 

@@ -14,6 +14,14 @@ describe('allowlist', () => {
     );
   });
 
+  it('未配置白名单时允许调用者指定的地址', () => {
+    const cfg = loadConfig({});
+    assert.equal(cfg.recipientAllowlist.size, 0);
+    assert.doesNotThrow(() =>
+      assertRecipientsAllowed(cfg, ['anyone@example.com']),
+    );
+  });
+
   it('拒绝名单外地址', () => {
     const cfg = loadConfig({
       MAIL_RECIPIENT_ALLOWLIST: 'a@example.com',

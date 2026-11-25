@@ -6,10 +6,7 @@ export function assertRecipientsAllowed(
   recipients: readonly string[],
 ): void {
   if (config.recipientAllowlist.size === 0) {
-    throw new AppError(
-      'allowlist',
-      '默认失败关闭：未配置 MAIL_RECIPIENT_ALLOWLIST，拒绝发送。',
-    );
+    return;
   }
   const denied: string[] = [];
   for (const r of recipients) {

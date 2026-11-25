@@ -17,7 +17,7 @@ export const SEND_EMAIL_DESCRIPTION = `通过阿里云企业邮 SMTP 向外发�
 
 安全与限制：
 - From 固定为 SMTP_USER，调用方不可覆盖。
-- 所有信封收件人必须命中 MAIL_RECIPIENT_ALLOWLIST（默认失败关闭）。
+- 收件人由调用参数 to/cc/bcc 填写，不固定。未配置 MAIL_RECIPIENT_ALLOWLIST 时不限制收件人；配置后则每个收件人都必须命中该名单。
 - 生产环境另需 MAIL_PRODUCTION_SEND_OPT_IN=true（不能替代人类批准）。
 - 附件仅允许 MAIL_ATTACHMENT_ROOT 下常规本地文件，以 Buffer 提交，禁止路径逃逸。
 - 若环境变量配置了 MAIL_SIGNATURE_HTML / MAIL_SIGNATURE_TEXT，发送时会自动附在正文末尾。宿主展示草稿时必须包含这段签名。正文里已有同一签名或同一图片地址时不会重复追加。

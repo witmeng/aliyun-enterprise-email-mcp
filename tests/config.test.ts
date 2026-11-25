@@ -63,13 +63,13 @@ describe('config / TLS', () => {
     assert.throws(() => requireSmtpCredentials(cfg), AppError);
   });
 
-  it('空白名单失败关闭；生产无 opt-in 拒绝', () => {
+  it('未配置白名单仍可发送；生产无 opt-in 拒绝', () => {
     const dev = loadConfig({
       SMTP_USER: 'u@example.com',
       SMTP_PASSWORD: 'x',
       NODE_ENV: 'development',
     });
-    assert.throws(() => assertSendPolicy(dev), AppError);
+    assert.doesNotThrow(() => assertSendPolicy(dev));
 
     const prod = loadConfig({
       SMTP_USER: 'u@example.com',

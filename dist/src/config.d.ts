@@ -32,7 +32,8 @@ export declare function requireSmtpCredentials(config: AppConfig): {
 };
 /**
  * 发送策略：
- * - 始终要求白名单非空且收件人全部命中（见 allowlist 模块）
+ * - 收件人由调用参数 to/cc/bcc 决定。未配置白名单时不限制收件人。
+ * - 配置了 MAIL_RECIPIENT_ALLOWLIST 时，收件人必须全部命中。
  * - NODE_ENV=production 时必须显式 MAIL_PRODUCTION_SEND_OPT_IN=true
  */
 export declare function assertSendPolicy(config: AppConfig): void;

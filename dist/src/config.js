@@ -87,13 +87,11 @@ export function requireSmtpCredentials(config) {
 }
 /**
  * 发送策略：
- * - 始终要求白名单非空且收件人全部命中（见 allowlist 模块）
+ * - 收件人由调用参数 to/cc/bcc 决定。未配置白名单时不限制收件人。
+ * - 配置了 MAIL_RECIPIENT_ALLOWLIST 时，收件人必须全部命中。
  * - NODE_ENV=production 时必须显式 MAIL_PRODUCTION_SEND_OPT_IN=true
  */
 export function assertSendPolicy(config) {
-    if (config.recipientAllowlist.size === 0) {
-        throw new AppError('allowlist', '默认失败关闭：未配置 MAIL_RECIPIENT_ALLOWLIST，拒绝发送。请显式列出允许的收件地址。');
-    }
     if (config.nodeEnv === 'production' && !config.productionSendOptIn) {
         throw new AppError('config', '生产环境拒绝发送：请将 MAIL_PRODUCTION_SEND_OPT_IN=true 作为有文档记录的显式选择加入。此标志不能替代宿主向人类展示完整草稿并获得明确批准。');
     }

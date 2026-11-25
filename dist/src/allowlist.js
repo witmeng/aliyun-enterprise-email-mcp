@@ -1,7 +1,7 @@
 import { AppError } from './errors.js';
 export function assertRecipientsAllowed(config, recipients) {
     if (config.recipientAllowlist.size === 0) {
-        throw new AppError('allowlist', '默认失败关闭：未配置 MAIL_RECIPIENT_ALLOWLIST，拒绝发送。');
+        return;
     }
     const denied = [];
     for (const r of recipients) {
