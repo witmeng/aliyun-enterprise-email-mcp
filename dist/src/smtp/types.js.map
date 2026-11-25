@@ -1,0 +1,1 @@
+{"version":3,"file":"types.js","sourceRoot":"","sources":["../../../src/smtp/types.ts"],"names":[],"mappings":"AA0CA,sBAAsB;AACtB,MAAM,CAAC,MAAM,oBAAoB,GAAG;IAClC,SAAS,EAAE,KAAK;IAChB,iBAAiB;QACf,IAAI,CAAC,IAAI,CAAC,SAAS,EAAE,CAAC;YACpB,MAAM,IAAI,KAAK,CACb,6CAA6C,CAC9C,CAAC;QACJ,CAAC;IACH,CAAC;CACF,CAAC"}

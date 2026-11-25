@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+# dist/src 随仓库提交，供 npx github: 安装后直接运行 bin，无需在目标机器上编译。
+dist/*
+!dist/src/
+!dist/src/**
+dist-test/
+*.tsbuildinfo
+
+# Package archives
+*.tgz
+*.tar.gz
+
+# Environment / secrets (keep .env.example)
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Logs / coverage / OS
+logs/
+*.log
+coverage/
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Test temp
+.tmp/
+.smoke-*/

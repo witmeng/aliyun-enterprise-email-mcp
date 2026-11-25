@@ -1,0 +1,53 @@
+{
+  "name": "aliyun-enterprise-email-mcp",
+  "version": "1.0.0",
+  "description": "Send-only Aliyun enterprise email MCP server (SMTP, stdio)",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "bin": {
+    "aliyun-enterprise-email-mcp": "./dist/src/index.js"
+  },
+  "main": "./dist/src/index.js",
+  "exports": {
+    ".": "./dist/src/index.js",
+    "./server": "./dist/src/server.js"
+  },
+  "files": [
+    "dist/src",
+    "README.md",
+    "package.json",
+    ".env.example"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test --test-reporter=spec \"dist/tests/**/*.test.js\"",
+    "pack:smoke": "npm run build && node scripts/package-smoke.mjs",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "nodemailer": "10.6.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "@types/nodemailer": "7.0.4",
+    "typescript": "5.9.3"
+  },
+  "keywords": [
+    "mcp",
+    "aliyun",
+    "email",
+    "smtp",
+    "qiye"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/witmeng/aliyun-enterprise-email-mcp.git"
+  },
+  "homepage": "https://github.com/witmeng/aliyun-enterprise-email-mcp#readme"
+}

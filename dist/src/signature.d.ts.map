@@ -1,0 +1,1 @@
+{"version":3,"file":"signature.d.ts","sourceRoot":"","sources":["../../src/signature.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,SAAS,EAAE,MAAM,aAAa,CAAC;AAmB7C;;;GAGG;AACH,wBAAgB,yBAAyB,CACvC,MAAM,EAAE,SAAS,EACjB,IAAI,EAAE,MAAM,GAAG,SAAS,EACxB,IAAI,EAAE,MAAM,GAAG,SAAS,GACvB;IAAE,IAAI,CAAC,EAAE,MAAM,CAAC;IAAC,IAAI,CAAC,EAAE,MAAM,CAAA;CAAE,CAwBlC"}
